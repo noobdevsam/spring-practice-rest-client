@@ -23,7 +23,7 @@ public class PostService {
         return restClient.get()
                 .uri("/posts")
                 .retrieve()
-                .body(new ParameterizedTypeReference<>() {
+                .body(new ParameterizedTypeReference<List<Post>>() {
                 });
     }
 

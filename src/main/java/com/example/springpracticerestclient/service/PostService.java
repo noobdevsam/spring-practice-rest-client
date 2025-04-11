@@ -19,7 +19,7 @@ public class PostService {
                 .build();
     }
 
-    List<Post> findAll() {
+    public List<Post> findAll() {
         return restClient.get()
                 .uri("/posts")
                 .retrieve()
@@ -27,14 +27,14 @@ public class PostService {
                 });
     }
 
-    Post findById(Integer id) {
+    public Post findById(Integer id) {
         return restClient.get()
                 .uri("/posts/{id}", id)
                 .retrieve()
                 .body(Post.class);
     }
 
-    Post findById(Post post) {
+    public Post create(Post post) {
         return restClient.post()
                 .uri("/posts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -43,7 +43,7 @@ public class PostService {
                 .body(Post.class);
     }
 
-    Post update(Integer id, Post post) {
+    public Post update(Integer id, Post post) {
         return restClient.put()
                 .uri("/posts/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -52,7 +52,7 @@ public class PostService {
                 .body(Post.class);
     }
 
-    void delete(Integer id) {
+    public void delete(Integer id) {
         restClient.delete()
                 .uri("/posts/{id}", id)
                 .retrieve()
